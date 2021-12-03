@@ -1,4 +1,10 @@
-import { FaPaperclip, IoColorPaletteOutline } from "react-icons/fa";
+import {
+  FaPaperclip,
+  IoColorPaletteOutline,
+  FaAlignRight,
+  FaAlignCenter,
+  FaAlignJustify,
+} from "react-icons/fa";
 import React from "react";
 
 const highlightIcon = () => <span style={{ fontWeight: "bold" }}>H</span>;
@@ -22,6 +28,10 @@ const normalStyle = (props) => (
     {props.children}
   </p>
 );
+
+const align = (props) => {
+  return <div style={{ textAlign: props.mark }}>{props.children}</div>;
+};
 
 export default {
   title: "Block Content",
@@ -77,6 +87,30 @@ export default {
           { title: "Underline", value: "underline" },
           { title: "Strike", value: "strike-through" },
           { title: "Code", value: "code" },
+          {
+            title: "Right",
+            value: "right",
+            blockEditor: {
+              icon: FaAlignRight,
+              render: align,
+            },
+          },
+          {
+            title: "Center",
+            value: "center",
+            blockEditor: {
+              icon: FaAlignCenter,
+              render: align,
+            },
+          },
+          {
+            title: "Justify",
+            value: "justify",
+            blockEditor: {
+              icon: FaAlignJustify,
+              render: align,
+            },
+          },
         ],
         // Annotations can be any object structure – e.g. a link or a footnote.
         annotations: [
